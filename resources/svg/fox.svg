@@ -1,15 +1,1 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 9 9" class="pixelicon-fox">
-	<path fill="#FF9200" d="M6,0H5V1H2V0H1V2H3V3H4V2H6z"/>
-	<rect fill="#FF9200" x="2" y="4" width="1" height="2"/>
-	<path fill="#FF9200" d="M4,4V6H7V7H9V5H8V4z"/>
-	<rect fill="#343341" x="2" y="2" width="1" height="1"/>
-	<rect fill="#343341" x="4" y="2" width="1" height="1"/>
-	<rect fill="#343341" x="3" y="3" width="1" height="1"/>
-	<path fill="#EBEAF7" d="M2,3V2H1V3H0V4H3V3z"/>
-	<path fill="#EBEAF7" d="M7,4V3H6V2H5V3H4V4z"/>
-	<rect fill="#EBEAF7" x="3" y="4" width="1" height="2"/>
-	<path fill="#EBEAF7" d="M6,9H8V8H9V7H7V8H6z"/>
-	<rect fill="#804227" x="2" y="6" width="1" height="1"/>
-	<rect fill="#804227" x="4" y="6" width="1" height="1"/>
-	<rect fill="#804227" x="6" y="6" width="1" height="1"/>
-</svg>
+<svg fill="currentColor" role="img" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><title>FOX</title><path d="M3.069 9.7h3.42L6.3 6.932H0v10.136h3.069V13.8h2.789v-2.778H3.069ZM24 6.932h-3.291L19.48 9.1l-1.231-2.168h-3.292l2.871 5.076-2.871 5.06h3.308l1.215-2.142 1.213 2.142H24l-2.871-5.06Zm-12.592 0A5.067 5.067 0 1 0 16.475 12a5.067 5.067 0 0 0-5.067-5.065Zm.888 7.146a.867.867 0 0 1-.873.847.847.847 0 0 1-.837-.858V9.919a.882.882 0 0 1 .837-.9.913.913 0 0 1 .873.9Z"/></svg>
