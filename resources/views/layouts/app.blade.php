@@ -16,7 +16,7 @@
             body { font-family: 'Inter', sans-serif; }
         </style>
     </head>
-    <body class="bg-eggplant text-white min-h-screen flex flex-col selection:bg-cyberyellow selection:text-eggplant">
+    <body class="bg-haiti text-white min-h-screen flex flex-col selection:bg-cyberyellow selection:text-haiti">
         @include('partials.topbar')
 
         <main class="flex-1 w-full">

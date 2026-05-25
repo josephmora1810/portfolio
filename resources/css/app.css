@@ -1,3 +1,18 @@
+@font-face {
+    font-family: 'Monocraft';
+    src: public_path('fonts/Monocraft.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+}
+@font-face {
+    font-family: 'JetBrains Mono';
+    src: public_path('fonts/JetBrainsMono-Regular.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+}
+
 @import 'tailwindcss';
 
 @source '../../vendor/laravel/framework/src/Illuminate/Pagination/resources/views/*.blade.php';
@@ -5,22 +20,27 @@
 @source '../**/*.blade.php';
 @source '../**/*.js';
 
+
+
 @theme {
     --color-dusty-duchess: #B38383;
     --color-cinnapink: #A06565;
     --color-deadly-yellow: #E2A700;
     --color-cyber-yellow: #FFD400;
     --color-cosmic-explorer: #5E0D47;
-    --color-eggplant: #18102B;
+    --color-haiti: #18102B;
     --color-plum-cheese: #5B0735;
     --color-heartless: #5F3F6F;
     --color-metal-petal: #B090B8;
     --color-monet-magic: #C0A8C8;
     --color-muted-berry: #907898;
     --color-dripping-wisteria: #B898C0;
-
+    --color-eggplant: #520A3C;
+    --color-electric-violet: #834DFB;
 
     --font-sans: 'Instrument Sans', ui-sans-serif, system-ui, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji',
         'Segoe UI Symbol', 'Noto Color Emoji';
+    --font-monocraft: 'Monocraft', sans-serif;
+    --font-jetbrains-mono: 'JetBrains Mono', monospace;
 }
 

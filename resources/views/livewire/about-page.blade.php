@@ -1,4 +1,9 @@
-<div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 py-12 md:py-20 overflow-hidden">
+<?php
+use function Livewire\Volt\{state};
+// Lógica de Livewire en el futuro, si es necesaria
+?>
+
+<div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 py-12 md:py-20 overflow-visible">
 
     {{-- Hero Section --}}
 {{-- Hero Section --}}
@@ -31,7 +36,7 @@
         <div :class="shown ? 'opacity-100 translate-x-0' : 'opacity-0 translate-x-12'"
             class="order-1 md:order-2 transition-all duration-1000 ease-out delay-200 transform flex justify-center md:justify-end relative">
 
-            <div class="absolute inset-0 bg-cyber-yellow rounded-2xl blur-3xl opacity-20 animate-pulse"></div>
+            <div class="absolute inset-1 bg-cyber-yellow rounded-3xl blur-3xl opacity-20 animate-pulse "></div>
 
             <div class="w-72 h-80 rounded-2xl bg-cosmic-explorer/80 backdrop-blur-sm border border-heartless flex flex-col items-center justify-center text-dripping-wisteria shadow-[0_0_30px_rgba(94,13,71,0.5)] relative overflow-hidden group hover:border-cyber-yellow transition-all duration-500 hover:-translate-y-2 hover:shadow-[0_10px_40px_rgba(255,212,0,0.2)]">
                 <svg xmlns="http://www.w3.org/2000/svg" class="h-16 w-16 mb-4 opacity-50 group-hover:text-cyber-yellow group-hover:scale-125 group-hover:rotate-6 transition-all duration-500" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -54,33 +59,46 @@
 
         <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
             <div :class="shown ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-16'"
-                class="group bg-linear-to-b from-cosmic-explorer to-eggplant rounded-2xl p-8 border border-heartless hover:border-dripping-wisteria transition-all duration-500 ease-out delay-100 shadow-xl hover:-translate-y-3">
+                class="group bg-linear-to-b from-cosmic-explorer to-haiti rounded-2xl p-8 border border-heartless hover:border-dripping-wisteria transition-all duration-500 ease-out delay-100 shadow-xl hover:-translate-y-3">
+                
                 <h3 class="text-xl font-display font-semibold mb-6 text-white group-hover:text-cyber-yellow transition-colors">PHP & Web</h3>
                 <div class="flex flex-wrap gap-2.5">
-                    <span class="px-3 py-1.5 text-xs font-semibold tracking-wide rounded-md bg-eggplant border border-heartless text-monet-magic shadow-inner">Laravel</span>
-                    <span class="px-3 py-1.5 text-xs font-semibold tracking-wide rounded-md bg-eggplant border border-heartless text-monet-magic shadow-inner">Livewire</span>
-                    <span class="px-3 py-1.5 text-xs font-semibold tracking-wide rounded-md bg-eggplant border border-heartless text-monet-magic shadow-inner">Alpine.js</span>
-                    <span class="px-3 py-1.5 text-xs font-semibold tracking-wide rounded-md bg-eggplant border border-heartless text-monet-magic shadow-inner">Tailwind CSS</span>
+                    <span class="px-3 py-1.5 text-xs font-semibold tracking-wide rounded-md bg-haiti border border-heartless text-monet-magic shadow-inner">
+                        @svg('icon-' . 'livewire', 'w-3.5 h-3.5 shrink-0')
+                        Laravel
+                    </span>
+                    <span class="px-3 py-1.5 text-xs font-semibold tracking-wide rounded-md bg-haiti border border-heartless text-monet-magic shadow-inner">
+                        @svg('icon-' . 'livewire', 'w-3.5 h-3.5 shrink-0')
+                        Livewire
+                    </span>
+                    <span class="px-3 py-1.5 text-xs font-semibold tracking-wide rounded-md bg-haiti border border-heartless text-monet-magic shadow-inner">
+                        @svg('icon-' . 'javascript', 'w-3.5 h-3.5 shrink-0')
+                        Alpine.js
+                    </span>
+                    <span class="px-3 py-1.5 text-xs font-semibold tracking-wide rounded-md bg-haiti border border-heartless text-monet-magic shadow-inner">
+                        @svg('icon-' . 'css', 'w-3.5 h-3.5 shrink-0')
+                        Tailwind CSS
+                    </span>
                 </div>
             </div>
 
             <div :class="shown ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-16'"
-                class="group bg-linear-to-b from-cosmic-explorer to-eggplant rounded-2xl p-8 border border-heartless hover:border-dripping-wisteria transition-all duration-500 ease-out delay-200 shadow-xl hover:-translate-y-3">
+                class="group bg-linear-to-b from-cosmic-explorer to-haiti rounded-2xl p-8 border border-heartless hover:border-dripping-wisteria transition-all duration-500 ease-out delay-200 shadow-xl hover:-translate-y-3">
                 <h3 class="text-xl font-display font-semibold mb-6 text-white group-hover:text-cyber-yellow transition-colors">Kotlin Ecosystem</h3>
                 <div class="flex flex-wrap gap-2.5">
-                    <span class="px-3 py-1.5 text-xs font-semibold tracking-wide rounded-md bg-eggplant border border-heartless text-monet-magic shadow-inner">Spring Boot</span>
-                    <span class="px-3 py-1.5 text-xs font-semibold tracking-wide rounded-md bg-eggplant border border-heartless text-monet-magic shadow-inner">Kotlin Multiplatform</span>
-                    <span class="px-3 py-1.5 text-xs font-semibold tracking-wide rounded-md bg-eggplant border border-heartless text-monet-magic shadow-inner">Jetpack Compose</span>
+                    <span class="px-3 py-1.5 text-xs font-semibold tracking-wide rounded-md bg-haiti border border-heartless text-monet-magic shadow-inner">Spring Boot</span>
+                    <span class="px-3 py-1.5 text-xs font-semibold tracking-wide rounded-md bg-haiti border border-heartless text-monet-magic shadow-inner">Kotlin Multiplatform</span>
+                    <span class="px-3 py-1.5 text-xs font-semibold tracking-wide rounded-md bg-haiti border border-heartless text-monet-magic shadow-inner">Jetpack Compose</span>
                 </div>
             </div>
 
             <div :class="shown ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-16'"
-                class="group bg-linear-to-b from-cosmic-explorer to-eggplant rounded-2xl p-8 border border-heartless hover:border-dripping-wisteria transition-all duration-500 ease-out delay-300 shadow-xl hover:-translate-y-3">
+                class="group bg-linear-to-b from-cosmic-explorer to-haiti rounded-2xl p-8 border border-heartless hover:border-dripping-wisteria transition-all duration-500 ease-out delay-300 shadow-xl hover:-translate-y-3">
                 <h3 class="text-xl font-display font-semibold mb-6 text-white group-hover:text-cyber-yellow transition-colors">Herramientas</h3>
                 <div class="flex flex-wrap gap-2.5">
-                    <span class="px-3 py-1.5 text-xs font-semibold tracking-wide rounded-md bg-eggplant border border-heartless text-monet-magic shadow-inner">MySQL / JWT</span>
-                    <span class="px-3 py-1.5 text-xs font-semibold tracking-wide rounded-md bg-eggplant border border-heartless text-monet-magic shadow-inner">Linux / Termux</span>
-                    <span class="px-3 py-1.5 text-xs font-semibold tracking-wide rounded-md bg-eggplant border border-heartless text-monet-magic shadow-inner">Diseño de APIs</span>
+                    <span class="px-3 py-1.5 text-xs font-semibold tracking-wide rounded-md bg-haiti border border-heartless text-monet-magic shadow-inner">MySQL / JWT</span>
+                    <span class="px-3 py-1.5 text-xs font-semibold tracking-wide rounded-md bg-haiti border border-heartless text-monet-magic shadow-inner">Linux / Termux</span>
+                    <span class="px-3 py-1.5 text-xs font-semibold tracking-wide rounded-md bg-haiti border border-heartless text-monet-magic shadow-inner">Diseño de APIs</span>
                 </div>
             </div>
         </div>
@@ -100,7 +118,7 @@
 
             <div :class="shown ? 'opacity-100 translate-x-0' : 'opacity-0 translate-x-16'"
                 class="relative pl-10 md:pl-16 transition-all duration-700 ease-out delay-100">
-                <div class="absolute -left-3.5 top-2 bg-cyber-yellow w-7 h-7 rounded-full border-4 border-eggplant shadow-[0_0_10px_rgba(255,212,0,0.5)]">
+                <div class="absolute -left-3.5 top-2 bg-cyber-yellow w-7 h-7 rounded-full border-4 border-haiti shadow-[0_0_10px_rgba(255,212,0,0.5)]">
                     <div class="absolute inset-0 rounded-full bg-cyber-yellow animate-ping opacity-20"></div>
                 </div>
 
@@ -115,7 +133,7 @@
 
             <div :class="shown ? 'opacity-100 translate-x-0' : 'opacity-0 translate-x-16'"
                 class="relative pl-10 md:pl-16 transition-all duration-700 ease-out delay-300">
-                <div class="absolute -left-3.5 top-2 bg-cyber-yellow w-7 h-7 rounded-full border-4 border-eggplant shadow-[0_0_10px_rgba(255,212,0,0.5)]">
+                <div class="absolute -left-3.5 top-2 bg-cyber-yellow w-7 h-7 rounded-full border-4 border-haiti shadow-[0_0_10px_rgba(255,212,0,0.5)]">
                     <div class="absolute inset-0 rounded-full bg-cyber-yellow animate-ping opacity-20"></div>
                 </div>
 
