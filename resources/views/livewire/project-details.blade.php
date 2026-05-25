@@ -101,7 +101,7 @@ mount(function ($id) {
     </header>
 
     {{-- Imagen Principal --}}
-    <div :class="shown ? 'opacity-100 scale-100' : 'opacity-0 scale-95'" class="transition-all duration-1000 ease-out delay-200 w-full h-[400px] md:h-[500px] rounded-3xl overflow-hidden mb-16 border border-heartless relative group">
+    <div :class="shown ? 'opacity-100 scale-100' : 'opacity-0 scale-95'" class="transition-all duration-1000 ease-out delay-200 w-full h-100 md:h-125 rounded-3xl overflow-hidden mb-16 border border-heartless relative group">
         <img src="{{ $project->thumbnail_path }}" alt="Thumbnail de {{ $project->title }}" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700">
         <div class="absolute inset-0 bg-linear-to-t from-eggplant/80 to-transparent"></div>
     </div>
