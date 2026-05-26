@@ -1,8 +1,3 @@
-<?php
-use function Livewire\Volt\{state};
-// Lógica de Livewire en el futuro, si es necesaria
-?>
-
 <div class="min-h-[calc(100vh-80px)] flex flex-col justify-center items-center px-4 sm:px-6 lg:px-8 overflow-visible relative mb-5">
 
     {{-- Efecto de fondo sutil --}}
