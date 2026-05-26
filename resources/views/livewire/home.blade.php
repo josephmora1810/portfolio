@@ -3,7 +3,7 @@ use function Livewire\Volt\{state};
 // Lógica de Livewire en el futuro, si es necesaria
 ?>
 
-<div class="min-h-[calc(100vh-80px)] flex flex-col justify-center items-center px-4 sm:px-6 lg:px-8 overflow-hidden relative mb-5">
+<div class="min-h-[calc(100vh-80px)] flex flex-col justify-center items-center px-4 sm:px-6 lg:px-8 overflow-visible relative mb-5">
 
     {{-- Efecto de fondo sutil --}}
     <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-150 h-150 bg-dripping-wisteria rounded-full blur-[120px] opacity-10 pointer-events-none"></div>
@@ -45,11 +45,11 @@ use function Livewire\Volt\{state};
             class="flex flex-col sm:flex-row gap-4 justify-center items-center transition-all duration-700 ease-out delay-500 mb-10">
 
             <a href="{{ route('about') }}" wire:navigate
-            class="w-full sm:w-auto px-8 py-3.5 rounded-full bg-dripping-wisteria text-white font-semibold tracking-wide hover:bg-cyber-yellow hover:text-eggplant transition-all duration-300 shadow-[0_0_20px_rgba(155,89,182,0.3)] hover:shadow-[0_0_25px_rgba(255,212,0,0.5)] transform hover:-translate-y-1">
+            class="w-full sm:w-auto px-8 py-3.5 rounded-full bg-dripping-wisteria text-white font-semibold tracking-wide hover:bg-cyber-yellow hover:text-haiti transition-all duration-300 shadow-[0_0_20px_rgba(155,89,182,0.3)] hover:shadow-[0_0_25px_rgba(255,212,0,0.5)] transform hover:-translate-y-1">
                 Acerca de mí
             </a>
 
-            <a href="#" wire:navigate
+            <a href="{{ route('projects') }}" wire:navigate
             class="w-full sm:w-auto px-8 py-3.5 rounded-full border border-heartless text-monet-magic font-semibold tracking-wide hover:border-cyber-yellow hover:text-cyber-yellow transition-all duration-300 transform hover:-translate-y-1">
                 Ver mis proyectos
             </a>
@@ -90,9 +90,7 @@ use function Livewire\Volt\{state};
 
                     {{-- Checkmark de éxito (SVG nativo simple para cuando se copia) --}}
                     <span x-show="copied" x-cloak>
-                        <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5 text-green-400" viewBox="0 0 20 20" fill="currentColor">
-                            <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd" />
-                        </svg>
+                        <x-icon-checkmark/>
                     </span>
 
                 </button>
