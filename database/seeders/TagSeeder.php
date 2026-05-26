@@ -39,14 +39,14 @@ class TagSeeder extends Seeder
             ['name' => 'Firebase', 'icon' => 'firebase'],
             // Backend tags
             ['name' => 'API REST', 'icon' => 'openapiinitiative'],
-            ['name' => 'Autenticación', 'icon' => 'lock'],
+            ['name' => 'Auth', 'icon' => 'lock'],
             ['name' => 'Caching', 'icon' => 'redis'],
-            ['name' => 'Microservicios', 'icon' => 'serverless'],
-            // Frontend / Diseño tags
-            ['name' => 'Diseño UX/UI', 'icon' => 'figma'],
-            ['name' => 'Accesibilidad', 'icon' => 'ux'],
+            ['name' => 'Microservices', 'icon' => 'serverless'],
+            // Frontend / Design tags
+            ['name' => 'UX/UI', 'icon' => 'figma'],
+            ['name' => 'Accessibility', 'icon' => 'ux'],
             ['name' => 'Responsive Design', 'icon' => 'mobile'],
-            ['name' => 'Animaciones CSS', 'icon' => 'laptop-phone'],
+            ['name' => 'CSSAnimations', 'icon' => 'laptop-phone'],
         ];
 
         foreach ($tags as $tag) {

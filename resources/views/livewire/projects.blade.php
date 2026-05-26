@@ -1,7 +1,7 @@
 <?php
 
 use function Livewire\Volt\{state, with};
-use App\Models\Project; // Descomentar cuando tengas el modelo
+use App\Models\Project;
 
 with(fn () => [
     'projects' => Project::all()
@@ -15,11 +15,11 @@ with(fn () => [
     <div class="text-center mb-16" x-data="{ shown: false }" x-init="setTimeout(() => shown = true, 100)">
         <h1 :class="shown ? 'opacity-100 translate-y-0' : 'opacity-0 -translate-y-8'"
             class="text-4xl md:text-5xl font-display font-bold text-white mb-6 transition-all duration-700 ease-out">
-            Mis Proyectos
+            {{ __('ui.projects.title') }}
         </h1>
         <p :class="shown ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'"
             class="text-monet-magic max-w-2xl mx-auto text-lg transition-all duration-700 ease-out delay-200">
-            Una colección de aplicaciones privadas en las que he trabajado, abarcando ecosistemas de Laravel, principalmente plantillas Blade y stack TALL.
+            {{ __('ui.projects.description') }}
         </p>
     </div>
 
@@ -43,8 +43,9 @@ with(fn () => [
                         {{ $project->title }}
                     </h3>
 
+                    {{-- Localización de la descripción corta desde BD --}}
                     <p class="text-sm text-monet-magic leading-relaxed mb-6 grow">
-                        {{ $project->short_description }}
+                        {{ $project->{'short_description_' . app()->getLocale()} }}
                     </p>
 
                     {{-- Tags con iconos --}}
@@ -65,12 +66,12 @@ with(fn () => [
                         {{-- Botón Principal --}}
                         <a href="{{ route('project.details', $project->slug) }}" wire:navigate
                         class="flex-1 bg-muted-berry/60 hover:bg-cyber-yellow text-white hover:text-haiti py-2.5 rounded-full text-center font-semibold text-sm transition-all duration-300 transform active:scale-95 shadow-[0_0_15px_rgba(155,89,182,0.2)] hover:shadow-[0_0_20px_rgba(255,212,0,0.4)]">
-                            Ver Detalles
+                            {{ __('ui.projects.view_details') }}
                         </a>
 
                         {{-- Botón Privacidad (Lock/Unlock) --}}
                         <button class="w-10 h-10 rounded-full border border-heartless flex items-center justify-center text-monet-magic hover:border-cyber-yellow hover:text-cyber-yellow transition-all duration-300 bg-muted-berry/60"
-                                title="{{ $project->is_public ? 'Repositorio Público' : 'Repositorio Privado' }}">
+                                title="{{ $project->is_public ? __('ui.projects.public_repo') : __('ui.projects.private_repo') }}">
                             @if($project->is_public)
                                 <x-icon-unlock class="w-4 h-4" />
                             @else
@@ -82,7 +83,7 @@ with(fn () => [
                         @if($project->live_url)
                             <a href="{{ $project->live_url }}" target="_blank" rel="noopener noreferrer"
                                 class="w-10 h-10 rounded-full border border-heartless flex items-center justify-center text-monet-magic hover:border-cyber-yellow hover:bg-deadly-yellow transition-all duration-300 bg-muted-berry/60"
-                                title="Visitar proyecto en vivo">
+                                title="{{ __('ui.projects.live_demo') }}">
                                 <x-icon-arrow-top-right class="w-4 h-4" />
                             </a>
                         @endif

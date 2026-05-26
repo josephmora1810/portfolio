@@ -2,7 +2,7 @@
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
         <div class="flex flex-col md:flex-row justify-between items-center gap-4">
             <p class="text-sm text-dripping-wisteria">
-                &copy; {{ date('Y') }} Joseph Ricardo Mora. Todos los derechos reservados.
+                &copy; {{ date('Y') }} Joseph Ricardo Mora. {{ __('ui.footer.rights') }}
             </p>
 
             <div class="flex space-x-6">

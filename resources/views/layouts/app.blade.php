@@ -24,5 +24,6 @@
         </main>
 
         @include('partials.footer')
+        <x-toaster-hub />
     </body>
 </html>
