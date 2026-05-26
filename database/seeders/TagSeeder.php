@@ -21,6 +21,8 @@ class TagSeeder extends Seeder
             ['name' => 'Laravel', 'icon' => 'laravel'],
             ['name' => 'Livewire', 'icon' => 'livewire'],
             ['name' => 'Tailwind CSS', 'icon' => 'tailwindcss'],
+            ['name' => 'Node', 'icon' => 'nodedotjs'],
+            ['name' => 'Npm', 'icon' => 'npm'],
             ['name' => 'Alpine.js', 'icon' => 'alpinedotjs'],
             ['name' => 'Kotlin', 'icon' => 'kotlin'],
             ['name' => 'Spring Boot', 'icon' => 'spring'],
@@ -34,6 +36,17 @@ class TagSeeder extends Seeder
             ['name' => 'Linux', 'icon' => 'linux'],
             ['name' => 'Apache', 'icon' => 'apache'],
             ['name' => 'Android', 'icon' => 'android'],
+            ['name' => 'Firebase', 'icon' => 'firebase'],
+            // Backend tags
+            ['name' => 'API REST', 'icon' => 'openapiinitiative'],
+            ['name' => 'Autenticación', 'icon' => 'lock'],
+            ['name' => 'Caching', 'icon' => 'redis'],
+            ['name' => 'Microservicios', 'icon' => 'serverless'],
+            // Frontend / Diseño tags
+            ['name' => 'Diseño UX/UI', 'icon' => 'figma'],
+            ['name' => 'Accesibilidad', 'icon' => 'ux'],
+            ['name' => 'Responsive Design', 'icon' => 'mobile'],
+            ['name' => 'Animaciones CSS', 'icon' => 'laptop-phone'],
         ];
 
         foreach ($tags as $tag) {

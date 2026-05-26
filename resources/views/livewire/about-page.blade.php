@@ -1,6 +1,60 @@
 <?php
-use function Livewire\Volt\{state};
-// Lógica de Livewire en el futuro, si es necesaria
+use function Livewire\Volt\{state, with};
+use App\Models\{Project, Tag, Certification};
+
+with(fn () => [
+    'projects' => Project::select('title','short_description_es', 'short_description_en', 'year')
+        ->latest()->take(5)->get(),
+    'certifications' => Certification::orderBy('date')->get()
+]);
+
+state([
+    'techStack' => [
+        [
+            'title' => 'PHP/Laravel & Node for Web (Dominado)',
+            'short_description' => 'Desarrollo web con PHP y tecnologías modernas',
+            'tags' => Tag::whereIn('name', ['PHP','Node','Npm','Laravel', 'Livewire', 'Alpine.js', 'Tailwind CSS','Mysql', 'MariaDB'])
+                        ->get(['name', 'icon'])
+                        ->toArray()
+        ],
+        [
+            'title' => 'Desarrollo Web Basico (Dominado)',
+            'short_description' => 'Explorando el ecosistema de Kotlin para desarrollo multiplataforma',
+            'tags' => Tag::whereIn('name', ['HTML', 'CSS','Javascript','Bootstrap', 'Sqlite','Apache'])
+                        ->get(['name', 'icon'])
+                        ->toArray()
+        ],
+        [
+            'title' => 'Kotlin Ecosystem (Aprendiendo)',
+            'short_description' => 'Explorando el ecosistema de Kotlin para desarrollo multiplataforma',
+            'tags' => Tag::whereIn('name', ['Kotlin', 'Android','Firebase','Spring Boot','Spring Web', 'Spring Security','Kotlin Multiplatform', 'Jetpack Compose'])
+                        ->get(['name', 'icon'])
+                        ->toArray()
+        ],
+        [
+            'title' => 'Controladores de Versiones',
+            'short_description' => 'Conocimiento en herramientas de control de versiones y colaboración en equipo',
+            'tags' => Tag::whereIn('name', ['Git', 'GitHub'])
+                        ->get(['name', 'icon'])
+                        ->toArray()
+        ],
+        [
+            'title' => 'Backend / APIs',
+            'short_description' => 'Diseño de APIs, autenticación, caching y arquitecturas escalables',
+            'tags' => Tag::whereIn('name', ['API REST','Linux', 'Autenticación', 'Caching', 'Microservicios', 'Docker', 'Redis'])
+                        ->get(['name', 'icon'])
+                        ->toArray()
+        ],
+        [
+            'title' => 'Frontend & Diseño',
+            'short_description' => 'Diseño UX/UI, accesibilidad y experiencias responsivas',
+            'tags' => Tag::whereIn('name', ['Diseño UX/UI', 'Accesibilidad', 'Responsive Design', 'Animaciones CSS', 'Figma', 'CSS'])
+                        ->get(['name', 'icon'])
+                        ->toArray()
+        ]
+    ]
+]);
+
 ?>
 
 <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 py-12 md:py-20 overflow-visible">
@@ -39,15 +93,13 @@ use function Livewire\Volt\{state};
             <div class="absolute inset-1 bg-cyber-yellow rounded-3xl blur-3xl opacity-20 animate-pulse "></div>
 
             <div class="w-72 h-80 rounded-2xl bg-cosmic-explorer/80 backdrop-blur-sm border border-heartless flex flex-col items-center justify-center text-dripping-wisteria shadow-[0_0_30px_rgba(94,13,71,0.5)] relative overflow-hidden group hover:border-cyber-yellow transition-all duration-500 hover:-translate-y-2 hover:shadow-[0_10px_40px_rgba(255,212,0,0.2)]">
-                <svg xmlns="http://www.w3.org/2000/svg" class="h-16 w-16 mb-4 opacity-50 group-hover:text-cyber-yellow group-hover:scale-125 group-hover:rotate-6 transition-all duration-500" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z" />
-                </svg>
+
                 <span class="text-sm font-medium tracking-widest uppercase group-hover:text-cyber-yellow transition-colors">Tu Fotografía</span>
             </div>
         </div>
     </section>
 
-    {{-- Skills Section --}}
+        {{-- Skills Section --}}
     <section x-data="{ shown: false }"
         x-intersect.half="shown = true"
         class="mb-32 relative">
@@ -58,49 +110,62 @@ use function Livewire\Volt\{state};
         </h2>
 
         <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-            <div :class="shown ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-16'"
-                class="group bg-linear-to-b from-cosmic-explorer to-haiti rounded-2xl p-8 border border-heartless hover:border-dripping-wisteria transition-all duration-500 ease-out delay-100 shadow-xl hover:-translate-y-3">
-                
-                <h3 class="text-xl font-display font-semibold mb-6 text-white group-hover:text-cyber-yellow transition-colors">PHP & Web</h3>
-                <div class="flex flex-wrap gap-2.5">
-                    <span class="px-3 py-1.5 text-xs font-semibold tracking-wide rounded-md bg-haiti border border-heartless text-monet-magic shadow-inner">
-                        @svg('icon-' . 'livewire', 'w-3.5 h-3.5 shrink-0')
-                        Laravel
-                    </span>
-                    <span class="px-3 py-1.5 text-xs font-semibold tracking-wide rounded-md bg-haiti border border-heartless text-monet-magic shadow-inner">
-                        @svg('icon-' . 'livewire', 'w-3.5 h-3.5 shrink-0')
-                        Livewire
-                    </span>
-                    <span class="px-3 py-1.5 text-xs font-semibold tracking-wide rounded-md bg-haiti border border-heartless text-monet-magic shadow-inner">
-                        @svg('icon-' . 'javascript', 'w-3.5 h-3.5 shrink-0')
-                        Alpine.js
-                    </span>
-                    <span class="px-3 py-1.5 text-xs font-semibold tracking-wide rounded-md bg-haiti border border-heartless text-monet-magic shadow-inner">
-                        @svg('icon-' . 'css', 'w-3.5 h-3.5 shrink-0')
-                        Tailwind CSS
-                    </span>
-                </div>
-            </div>
+            @foreach ($techStack as $st)
+                <div :class="shown ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-16'"
+                    class="group bg-linear-to-b from-cosmic-explorer to-haiti rounded-2xl p-8 border border-heartless hover:border-dripping-wisteria transition-all duration-500 ease-out delay-100 shadow-xl hover:-translate-y-3">
+                    <h3 class="text-xl font-display font-semibold mb-1 text-white group-hover:text-cyber-yellow transition-colors">{{ $st['title'] }}</h3>
+                    <h2 class="text-xs text-gray-300/50 mb-4">
+                        {{ $st['short_description'] }}
+                    </h2>
+                    <div class="flex flex-wrap gap-2.5">
+                        @foreach ($st['tags'] as $tag)
+                            <span class="px-3 py-1.5 text-xs font-semibold tracking-wide rounded-md bg-haiti border border-heartless text-monet-magic hover:border-deadly-yellow hover:text-deadly-yellow shadow-inner inline-flex items-center gap-1.5">
+                                @if($tag['icon'])
+                                    <x-dynamic-component :component="'icon-' . $tag['icon']" class="w-3.5 h-3.5 shrink-0 text-white" />
+                                @endif
+                                {{ $tag['name'] }}
+                            </span>
 
-            <div :class="shown ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-16'"
-                class="group bg-linear-to-b from-cosmic-explorer to-haiti rounded-2xl p-8 border border-heartless hover:border-dripping-wisteria transition-all duration-500 ease-out delay-200 shadow-xl hover:-translate-y-3">
-                <h3 class="text-xl font-display font-semibold mb-6 text-white group-hover:text-cyber-yellow transition-colors">Kotlin Ecosystem</h3>
-                <div class="flex flex-wrap gap-2.5">
-                    <span class="px-3 py-1.5 text-xs font-semibold tracking-wide rounded-md bg-haiti border border-heartless text-monet-magic shadow-inner">Spring Boot</span>
-                    <span class="px-3 py-1.5 text-xs font-semibold tracking-wide rounded-md bg-haiti border border-heartless text-monet-magic shadow-inner">Kotlin Multiplatform</span>
-                    <span class="px-3 py-1.5 text-xs font-semibold tracking-wide rounded-md bg-haiti border border-heartless text-monet-magic shadow-inner">Jetpack Compose</span>
+                        @endforeach
+                    </div>
                 </div>
-            </div>
+            @endforeach
+        </div>
+    </section>
 
-            <div :class="shown ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-16'"
-                class="group bg-linear-to-b from-cosmic-explorer to-haiti rounded-2xl p-8 border border-heartless hover:border-dripping-wisteria transition-all duration-500 ease-out delay-300 shadow-xl hover:-translate-y-3">
-                <h3 class="text-xl font-display font-semibold mb-6 text-white group-hover:text-cyber-yellow transition-colors">Herramientas</h3>
-                <div class="flex flex-wrap gap-2.5">
-                    <span class="px-3 py-1.5 text-xs font-semibold tracking-wide rounded-md bg-haiti border border-heartless text-monet-magic shadow-inner">MySQL / JWT</span>
-                    <span class="px-3 py-1.5 text-xs font-semibold tracking-wide rounded-md bg-haiti border border-heartless text-monet-magic shadow-inner">Linux / Termux</span>
-                    <span class="px-3 py-1.5 text-xs font-semibold tracking-wide rounded-md bg-haiti border border-heartless text-monet-magic shadow-inner">Diseño de APIs</span>
-                </div>
-            </div>
+    {{-- Certificaciones (Cursos y Eventos) --}}
+    <section x-data="{ shown: false }"
+        x-intersect.half="shown = true"
+        class="mb-32 relative">
+
+        <h2 :class="shown ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'"
+            class="text-4xl font-display font-bold mb-12 flex items-center gap-4 transition-all duration-700 ease-out">
+            <span class="text-cyber-yellow">#</span> Cursos y Eventos
+        </h2>
+
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+            @foreach ($certifications as $cert)
+                <article :class="shown ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-16'"
+                    class="group flex h-full flex-col rounded-4xl border border-heartless bg-cosmic-explorer/80 p-6 shadow-[0_20px_80px_rgba(0,0,0,0.2)] transition-all duration-500 ease-out delay-100 hover:-translate-y-2 hover:border-cyber-yellow hover:bg-cosmic-explorer">
+                    <div>
+                        <div class="flex items-start justify-between gap-4 mb-6">
+                            <div>
+                                <h3 class="text-md font-display font-semibold text-white group-hover:text-cyber-yellow transition-colors">{{ $cert->title }}</h3>
+                            </div>
+                            <span class="inline-flex items-center rounded-full border border-cyber-yellow/40 bg-cyber-yellow/10 px-3 py-1 text-xs font-semibold text-cyber-yellow">{{ $cert->type === 'course' ? 'Curso' : 'Evento' }}</span>
+                        </div>
+
+                        <p class="text-monet-magic text-xs leading-relaxed mb-6 min-h-20">{{ $cert->short_description_es }}</p>
+                    </div>
+
+                    <div class="mt-auto flex flex-wrap items-center gap-3 pt-4 border-t border-heartless/20">
+                        <a href="{{ asset('storage/' . $cert->certificate_url) }}" target="_blank" rel="noopener noreferrer"
+                            class="inline-flex items-center justify-center rounded-full bg-yellow-300/50 px-4 py-2 text-sm font-semibold text-haiti transition-colors duration-300 hover:bg-yellow-300 hover:text-haiti shadow-[0_0_20px_rgba(255,212,0,0.25)]">
+                            Ver Certificado
+                        </a>
+                    </div>
+                </article>
+            @endforeach
         </div>
     </section>
 
@@ -115,37 +180,22 @@ use function Livewire\Volt\{state};
         </h2>
 
         <div class="relative ml-6 md:ml-12 border-l-2 border-heartless space-y-16 pb-8">
-
-            <div :class="shown ? 'opacity-100 translate-x-0' : 'opacity-0 translate-x-16'"
+            @foreach ($projects as $project)
+                <div :class="shown ? 'opacity-100 translate-x-0' : 'opacity-0 translate-x-16'"
                 class="relative pl-10 md:pl-16 transition-all duration-700 ease-out delay-100">
-                <div class="absolute -left-3.5 top-2 bg-cyber-yellow w-7 h-7 rounded-full border-4 border-haiti shadow-[0_0_10px_rgba(255,212,0,0.5)]">
-                    <div class="absolute inset-0 rounded-full bg-cyber-yellow animate-ping opacity-20"></div>
-                </div>
+                    <div class="absolute -left-3.5 top-2 bg-cyber-yellow w-7 h-7 rounded-full border-4 border-haiti shadow-[0_0_10px_rgba(255,212,0,0.5)]">
+                        <div class="absolute inset-0 rounded-full bg-cyber-yellow animate-ping opacity-20"></div>
+                    </div>
 
-                <div class="group bg-cosmic-explorer/50 backdrop-blur-md rounded-2xl p-6 md:p-8 border border-heartless hover:border-cyber-yellow transition-all duration-500 hover:bg-cosmic-explorer hover:shadow-[0_0_30px_rgba(255,212,0,0.05)] cursor-pointer">
-                    <h3 class="text-xl font-display font-bold text-white group-hover:text-cyber-yellow transition-colors">App de Gestión Financiera</h3>
-                    <p class="text-dripping-wisteria font-mono text-sm mt-2 mb-4 tracking-tight">PLATAFORMA ESTILO QUICKBOOKS</p>
-                    <p class="text-monet-magic text-sm md:text-base leading-relaxed">
-                        Desarrollo de una aplicación web diseñada para facilitar la gestión contable de dueños de negocios, simplificando procesos financieros complejos mediante una interfaz intuitiva y limpia.
-                    </p>
+                    <div class="group bg-cosmic-explorer/50 backdrop-blur-md rounded-2xl p-6 md:p-8 border border-heartless hover:border-cyber-yellow transition-all duration-500 hover:bg-cosmic-explorer hover:shadow-[0_0_30px_rgba(255,212,0,0.05)] cursor-pointer">
+                        <h3 class="text-xl font-display font-bold text-white group-hover:text-cyber-yellow transition-colors">{{ $project['title'] }}</h3>
+                        <p class="text-dripping-wisteria font-mono text-sm mt-2 mb-4 tracking-tight">{{ $project['year'] }}</p>
+                            <p class="text-monet-magic text-sm md:text-base leading-relaxed">
+                            {{ $project['short_description_' . (app()->getLocale() === 'es' ? 'es' : 'en')] }}
+                        </p>
+                    </div>
                 </div>
-            </div>
-
-            <div :class="shown ? 'opacity-100 translate-x-0' : 'opacity-0 translate-x-16'"
-                class="relative pl-10 md:pl-16 transition-all duration-700 ease-out delay-300">
-                <div class="absolute -left-3.5 top-2 bg-cyber-yellow w-7 h-7 rounded-full border-4 border-haiti shadow-[0_0_10px_rgba(255,212,0,0.5)]">
-                    <div class="absolute inset-0 rounded-full bg-cyber-yellow animate-ping opacity-20"></div>
-                </div>
-
-                <div class="group bg-cosmic-explorer/50 backdrop-blur-md rounded-2xl p-6 md:p-8 border border-heartless hover:border-cyber-yellow transition-all duration-500 hover:bg-cosmic-explorer hover:shadow-[0_0_30px_rgba(255,212,0,0.05)] cursor-pointer">
-                    <h3 class="text-xl font-display font-bold text-white group-hover:text-cyber-yellow transition-colors">memora-app</h3>
-                    <p class="text-dripping-wisteria font-mono text-sm mt-2 mb-4 tracking-tight">KOTLIN MULTIPLATFORM APP</p>
-                    <p class="text-monet-magic text-sm md:text-base leading-relaxed">
-                        Aplicación desarrollada utilizando Kotlin Multiplatform. Implementación de backend robusto con Spring Boot y autenticación segura mediante JWT interactuando con bases de datos MySQL.
-                    </p>
-                </div>
-            </div>
-
+            @endforeach
         </div>
     </section>
 

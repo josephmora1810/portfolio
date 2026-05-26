@@ -6,11 +6,11 @@
             </a>
 
             <nav class="hidden md:flex space-x-8 font-medium text-sm">
-                <a href="{{ route('home') }}" wire:navigate class="text-monet-magic hover:text-cyber-yellow transition-colors duration-200">Inicio</a>
-                <a href="{{ route('about') }}" wire:navigate class="text-monet-magic hover:text-cyber-yellow transition-colors duration-200">Sobre mí</a>
-                <a href="{{ route('projects') }}" wire:navigate.hover class="text-monet-magic hover:text-cyber-yellow transition-colors duration-200">Proyectos</a>
-                <a href="{{ route('playground') }}" wire:navigate class="text-monet-magic hover:text-cyber-yellow transition-colors duration-200">Demostración</a>
-                <a href="{{ route('cv') }}" class="text-monet-magic hover:text-cyber-yellow transition-colors duration-200">CV</a>
+                <a href="{{ route('home') }}" wire:navigate class="{{ request()->routeIs('home') ? 'text-cyber-yellow' : 'text-monet-magic' }} hover:text-cyber-yellow transition-colors duration-200">Inicio</a>
+                <a href="{{ route('about') }}" wire:navigate class="{{ request()->routeIs('about') ? 'text-cyber-yellow' : 'text-monet-magic' }} hover:text-cyber-yellow transition-colors duration-200">Sobre mí</a>
+                <a href="{{ route('projects') }}" wire:navigate.hover class="{{ request()->routeIs('projects') ? 'text-cyber-yellow' : 'text-monet-magic' }} hover:text-cyber-yellow transition-colors duration-200">Proyectos</a>
+                <a href="{{ route('playground') }}" wire:navigate class="{{ request()->routeIs('playground') ? 'text-cyber-yellow' : 'text-monet-magic' }} hover:text-cyber-yellow transition-colors duration-200">Demostración</a>
+                <a href="{{ route('cv') }}" class="{{ request()->routeIs('cv') ? 'text-cyber-yellow' : 'text-monet-magic' }} hover:text-cyber-yellow transition-colors duration-200">CV</a>
             </nav>
 
             <button @click="mobileMenuOpen = !mobileMenuOpen" class="md:hidden rounded-md p-2 text-heartless hover:bg-haiti focus:outline-none transition-colors">
@@ -25,11 +25,11 @@
                 x-collapse
                 x-cloak
                 class="md:hidden pb-4 space-y-2">
-            <a href="{{ route('home') }}" wire:navigate class="block px-3 py-2 rounded-md text-base font-medium text-heartless hover:bg-haiti hover:text-cyber-yellow transition-colors">Inicio</a>
-            <a href="{{ route('about') }}" wire:navigate class="block px-3 py-2 rounded-md text-base font-medium text-heartless hover:bg-haiti hover:text-cyber-yellow transition-colors">Sobre mí</a>
-            <a href="{{ route('projects') }}" wire:navigate class="block px-3 py-2 rounded-md text-base font-medium text-heartless hover:bg-haiti hover:text-cyber-yellow transition-colors">Proyectos</a>
-            <a href="{{ route('playground') }}" wire:navigate class="block px-3 py-2 rounded-md text-base font-medium text-heartless hover:bg-haiti hover:text-cyber-yellow transition-colors">Demostración</a>
-            <a href="{{ route('cv') }}" class="block px-3 py-2 rounded-md text-base font-medium text-heartless hover:bg-haiti hover:text-cyber-yellow transition-colors">CV</a>
+            <a href="{{ route('home') }}" wire:navigate class="block px-3 py-2 rounded-md text-base font-medium {{ request()->routeIs('home') ? 'text-cyber-yellow' : 'text-heartless' }} hover:bg-haiti hover:text-cyber-yellow transition-colors">Inicio</a>
+            <a href="{{ route('about') }}" wire:navigate class="block px-3 py-2 rounded-md text-base font-medium {{ request()->routeIs('about') ? 'text-cyber-yellow' : 'text-heartless' }} hover:bg-haiti hover:text-cyber-yellow transition-colors">Sobre mí</a>
+            <a href="{{ route('projects') }}" wire:navigate class="block px-3 py-2 rounded-md text-base font-medium {{ request()->routeIs('projects') ? 'text-cyber-yellow' : 'text-heartless' }} hover:bg-haiti hover:text-cyber-yellow transition-colors">Proyectos</a>
+            <a href="{{ route('playground') }}" wire:navigate class="block px-3 py-2 rounded-md text-base font-medium {{ request()->routeIs('playground') ? 'text-cyber-yellow' : 'text-heartless' }} hover:bg-haiti hover:text-cyber-yellow transition-colors">Demostración</a>
+            <a href="{{ route('cv') }}" class="block px-3 py-2 rounded-md text-base font-medium {{ request()->routeIs('cv') ? 'text-cyber-yellow' : 'text-heartless' }} hover:bg-haiti hover:text-cyber-yellow transition-colors">CV</a>
         </div>
     </div>
 </header>

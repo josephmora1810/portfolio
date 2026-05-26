@@ -19,7 +19,7 @@ with(fn () => [
         </h1>
         <p :class="shown ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'"
             class="text-monet-magic max-w-2xl mx-auto text-lg transition-all duration-700 ease-out delay-200">
-            Una colección de arquitecturas, aplicaciones y desarrollos en los que he trabajado, abarcando desde ecosistemas Kotlin hasta el TALL stack.
+            Una colección de aplicaciones privadas en las que he trabajado, abarcando ecosistemas de Laravel, principalmente plantillas Blade y stack TALL.
         </p>
     </div>
 
@@ -50,7 +50,7 @@ with(fn () => [
                     {{-- Tags con iconos --}}
                     <div class="flex flex-wrap gap-2 mb-8">
                         @foreach($project->tags as $tag)
-                            <span class="px-3 py-1 text-xs font-mono rounded-full border border-black text-black bg-yellow-300/30 hover:bg-deadly-yellow inline-flex items-center gap-1.5">
+                            <span class="px-3 py-1.5 text-xs font-semibold tracking-wide rounded-md bg-haiti border border-heartless text-monet-magic hover:border-deadly-yellow hover:text-deadly-yellow shadow-inner inline-flex items-center gap-1.5">
                                 @if($tag->icon)
                                     <x-dynamic-component :component="'icon-' . $tag->icon" class="w-3 h-3" />
                                 @endif
@@ -63,7 +63,7 @@ with(fn () => [
                     <div class="flex items-center gap-3 mt-auto">
 
                         {{-- Botón Principal --}}
-                        <a href="/projects/{{ $project->slug }}" wire:navigate
+                        <a href="{{ route('project.details', $project->slug) }}" wire:navigate
                         class="flex-1 bg-muted-berry/60 hover:bg-cyber-yellow text-white hover:text-haiti py-2.5 rounded-full text-center font-semibold text-sm transition-all duration-300 transform active:scale-95 shadow-[0_0_15px_rgba(155,89,182,0.2)] hover:shadow-[0_0_20px_rgba(255,212,0,0.4)]">
                             Ver Detalles
                         </a>

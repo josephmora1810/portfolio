@@ -37,7 +37,7 @@ use function Livewire\Volt\{state};
         {{-- Párrafo descriptivo --}}
         <p :class="shown ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'"
         class="text-lg text-dripping-wisteria/80 max-w-2xl mx-auto mb-12 leading-relaxed transition-all duration-700 ease-out delay-300">
-            Construyo arquitecturas sólidas y experiencias digitales multiplataforma. Especializado en desarrollo backend moderno y apasionado por llevar ideas complejas a la realidad mediante código limpio y eficiente.
+            Construyo arquitecturas sólidas y experiencias digitales multiplataforma. Especializado en desarrollo fullstack moderno y apasionado por llevar ideas complejas a la realidad mediante código limpio y eficiente.
         </p>
 
         {{-- Botones de acción principales --}}
@@ -52,6 +52,11 @@ use function Livewire\Volt\{state};
             <a href="{{ route('projects') }}" wire:navigate
             class="w-full sm:w-auto px-8 py-3.5 rounded-full border border-heartless text-monet-magic font-semibold tracking-wide hover:border-cyber-yellow hover:text-cyber-yellow transition-all duration-300 transform hover:-translate-y-1">
                 Ver mis proyectos
+            </a>
+
+            <a href="{{ route('playground') }}" wire:navigate
+            class="w-full sm:w-auto px-8 py-3.5 rounded-full border border-heartless text-monet-magic font-semibold tracking-wide hover:border-cyber-yellow hover:text-cyber-yellow transition-all duration-300 transform hover:-translate-y-1">
+                Ver demostración
             </a>
 
         </div>
@@ -90,7 +95,7 @@ use function Livewire\Volt\{state};
 
                     {{-- Checkmark de éxito (SVG nativo simple para cuando se copia) --}}
                     <span x-show="copied" x-cloak>
-                        <x-icon-checkmark/>
+                        <x-icon-checkmark-circle class="w-5 h-5 text-green-500"/>
                     </span>
 
                 </button>

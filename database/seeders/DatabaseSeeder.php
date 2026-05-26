@@ -18,6 +18,7 @@ class DatabaseSeeder extends Seeder
         $this->call([
             TagSeeder::class,
             ProjectSeeder::class,
+            CertificationSeeder::class,
         ]);
     }
 }
