@@ -21,8 +21,8 @@ Route::prefix('{locale}')->middleware(SetLocale::class)->group(function () {
     Route::get('/cv', function () {
         $locale = app()->getLocale();
         
-        $fileName = "CV_Josep_Ricardo_{$locale}.pdf";
-        $path = resource_path("assets/{$fileName}");
+        $fileName = "JosephMoraCV_{$locale}.pdf";
+        $path = public_path("storage/{$fileName}");
 
         return response()->file($path, [
             'Content-Type' => 'application/pdf',
